@@ -11,9 +11,6 @@ app.use(express.urlencoded({ extended: false }));
 //initialize passport
 app.use(passport.initialize());
 
-//
-app.use(passport.setAuthenticatedUser);
-
 //routes
 app.use("/", require("./routes/index"));
 

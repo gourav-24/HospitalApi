@@ -30,32 +30,4 @@ passport.use(
   })
 );
 
-passport.serializeUser(function (user, done) {
-  return done(null, doctor._id);
-});
-
-passport.deserializeUser(function (id, done) {
-  Doctor.findById(id, function (err, doctor) {
-    if (err) {
-      console.log("error in deserializing doctor");
-      return done(err);
-    }
-    return done(null, doctor);
-  });
-});
-
-passport.checkAuthentication = function (req, res, next) {
-  if (req.isAuthenticated()) {
-    //isAuthenticated is a fn by passport to detect if user is logged in
-    return next();
-  }
-  return res.status(402).json("unauthorized");
-};
-
-passport.setAuthenticatedUser = function (req, res, next) {
-  if (req.isAuthenticated()) {
-    res.locals.doctor = req.doctor; // here we are putting user in local object of res for future use since req is handeled by passport
-  }
-  next();
-};
 module.exports = passport;
