@@ -5,13 +5,14 @@ const Report = require("../../../models/report");
 module.exports.register = async function (req, res) {
   try {
     console.log(req.locals);
+    console.log(req.user);
     if (req.body.phoneNo && req.body.phoneNo !== "") {
-      let patientRec = await Patient.findOne({ phone: req.body.phoneNo });
+      let patientRec = await Patient.findOne({ phoneNo: req.body.phoneNo });
 
       // patient rec found
       if (patientRec) {
         return res.status(200).json({
-          message: `Patient with phone no: ${req.body.phone} already exist.`,
+          message: `Patient with phone no: ${req.body.phoneNo} already exist.`,
         });
       }
 
@@ -43,7 +44,7 @@ module.exports.create_report = async function (req, res) {
     }
     // hardcoded dr
     let reportRec = await Report.create({
-      createdByDr: "61aba4f81901c1c52febe1cc",
+      createdByDr: req.user._id,
       patient: req.params.id,
       status: req.body.status,
     });

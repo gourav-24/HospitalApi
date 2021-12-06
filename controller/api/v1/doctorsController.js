@@ -23,12 +23,12 @@ module.exports.register = async function (req, res) {
     // if doctor dont exist
     Doctor.create(req.body, function (err, doctor) {
       if (err) {
-        console.log("error while creating user");
-        return res.status(500).json({ message: "Error while creating user" });
+        console.log("error while creating doctor");
+        return res.status(500).json({ message: "Error while creating doctor" });
       }
     });
 
-    return res.status(200).json({ message: "user created" });
+    return res.status(200).json({ message: "doctor created" });
   } catch (err) {
     console.log("error in doctor register controller" + err);
     return res.status(500).json({ message: "Internal server error" });
@@ -54,7 +54,7 @@ module.exports.login = async function (req, res) {
     }
 
     // if password is matched and
-    res.locals.doctor = doctorRec;
+    //res.locals.doctor = doctorRec;
     return res.status(200).json({
       message: "Sign in successfull, find your access token below",
       data: {
