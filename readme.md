@@ -1,4 +1,30 @@
-## Following routes are used, We need to change Bearer toke after doctor login
+## Theme:
+1) This API is designed for the doctors of a Hospital which has been allocated by the govt for testing and quarantine + well being of  COVID-19 patients
+2) There can be 2 types of Users
+   a) Doctors
+   b) Patients
+3) Doctors can log in
+4) Each time a patient visits, the doctor will follow 2 steps
+   a) Register the patient in the app (using phone number, if the patient already exists, just return the patient info in the API)
+   b) After the checkup, create a Report
+5) Patient Report have the following fields
+   a) Created by doctor
+   b) Status Can be either of: [Negative, Travelled-Quarantine, Symptoms-Quarantine, Positive-Admit]
+   c) Date
+
+## Required Routes
+1) /doctors/register
+2) /doctors/login
+3) /patients/register 
+4) /patients/:id/create_report
+5) /patients/:id/all_reports
+6) /reports/:status
+
+# This app is hosted on heroku.com anyone can make request using applications like POSTMAN
+APP url: https://hospital-api-v.herokuapp.com/
+example url: https://hospital-api-v.herokuapp.com/api/v1/doctors/register
+
+## Following routes are used, We need to change Bearer token after doctor login
 
 ## 1 create doctors
 
