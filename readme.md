@@ -69,3 +69,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNzM2YmZjY
 GET http://localhost:8000/api/v1/reports/:status HTTP/1.1
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNzM2YmZjYmZmMzYxMTFjNDUwOWFkNCIsImVtYWlsIjoiYUBhIiwibmFtZSI6InNoeWFtIiwiYWJvdXQiOiJ0aGlzIGlzIHNvIGNvb2wga2kgYmFyYmggYmhpIGptYSBkZXRhIGh1LiIsImlhdCI6MTYzNTA0NDEwNCwiZXhwIjoxNjM1MDUwMTA0fQ.th2yr_xggozrwia5iWOA2adMi8LQ4WjeXOwFnMV1uMw
+
+
+## Tech used:
+1) express 
+2) jsonwebtoken 
+3) mongoose
+4) passport-jwt
+5) Node js
